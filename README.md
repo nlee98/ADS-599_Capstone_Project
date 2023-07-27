@@ -4,4 +4,14 @@ _USD ADS-599 Capstone Project Summer 2023 by Hunter Blum, Kyle Esteban Dalope, a
 ## Overview
 
 ## Repository Contents
+[_Code Library Folder_](https://github.com/nlee98/ADS-599_Capstone_Project/tree/main/Code%20Library)
+- This folder contains the jupyter notebooks, ordered sequentially, utilized to produce the final output. The details of the notebooks are as follows:
+  
+    1. [_Data Exploration_](https://github.com/nlee98/ADS-599_Capstone_Project/blob/main/Code%20Library/1_Data_Exploration.ipynb)
+      - This notebook contains preliminary data exploration and data preparation steps, including: data importation, data deduplication, descriptive statistics, early feature removal, feature engineering, missing data imputation, univariate and bivariate data analysis, outlier detection, feature correlation, and geospatial feature exploration. 
+    2. [_Cleaning and Engineering_](https://github.com/nlee98/ADS-599_Capstone_Project/blob/main/Code%20Library/2_Cleaning_Engineering.ipynb)
+      - This notebook goes further in-depth on feature engineering, missing data handling, and dimensionality reduction. A sentiment feature is derived from the text-based review feature. Every missing value is handled either by imputation based on logic, imputation by manual assessment, or removal. Feature data types are also assessed; and, unnecessary features are removed.
+    3. [_Modeling_](https://github.com/nlee98/ADS-599_Capstone_Project/blob/main/Code%20Library/3_Modeling.ipynb)
 
+[_Data Folder_](https://github.com/nlee98/ADS-599_Capstone_Project/tree/main/Data)
+- The data folder contains the raw data from [Inside Airbnb](http://insideairbnb.com/get-the-data/) utilized for this project, as well as other files needed during EDA, feature engineering, and check points (such as geojson files, U.S. Census data, and compressed CSV dataframe outputs).
