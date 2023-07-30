@@ -32,7 +32,7 @@ number_of_host_listings_feat1 = st.number_input(
     "How many listings does the host have? "
 )
 
-zipcode_feat19 = st.select_box(
+zipcode_feat19 = st.selectbox(
     "What is the zipcode of the listing?",
     tuple(data.zipcode.unique())
 )
