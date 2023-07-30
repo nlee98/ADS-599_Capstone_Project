@@ -14,10 +14,9 @@ from sklearn.ensemble import GradientBoostingRegressor # Version 1.3.0
 
 
 # Load models
-house_model = pickle.load(open("../Code Library/Models/gb_house_tuned.sav", "rb"))
-room_model = pickle.load(open("../Code Library/Models/gb_room_tuned.sav", "rb"))
+house_model = pickle.load(open("Code Library/Models/gb_house_tuned.sav", "rb"))
+room_model = pickle.load(open("Code Library/Models/gb_room_tuned.sav", "rb"))
 
 st.header("Fish Weight Prediction App")
 # st.text_input("Enter your Name: ", key="name")
 # data = pd.read_csv("fish.csv")
-
