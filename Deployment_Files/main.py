@@ -54,6 +54,7 @@ price_feat6 = st.number_input(
     "What is the listed price?"
 )
 
+'''
 min_nights_feat7 = st.number_input(
     "What is the minimum number of nights required?"
 )
@@ -61,5 +62,21 @@ min_nights_feat7 = st.number_input(
 max_nights_feat8 = st.number_input(
     "What are the maximum number of nights allowed?"
 )
+minimum_minimum_nights_feat9
+maximum_maximum_nights_feat10
+has_availability_feat11
+availability_30_feat12
+availability_365_feat13 
+instant_bookable_feat14
+calculated_host_listings_count_feat15
+calculated_host_listings_count_private_rooms_feat16
+calculated_host_listings_count_shared_rooms_feat17 
+reviews_per_month_feat18
+zipcode_feat19 
+median_income_dollars_feat20 
+property_type_binary_feat21 
+private_feat22
+sentiment_feat23 
+review_score_weighted_feat24
 
-
+'''
