@@ -72,11 +72,20 @@ calculated_host_listings_count_feat15
 calculated_host_listings_count_private_rooms_feat16
 calculated_host_listings_count_shared_rooms_feat17 
 reviews_per_month_feat18
-zipcode_feat19 
+zipcode_feat19 = st.select_box(
+    "What is the zipcode of the listing?",
+    tuple(data.zipcode.unique())
+)
 median_income_dollars_feat20 
 property_type_binary_feat21 
 private_feat22
 sentiment_feat23 
 review_score_weighted_feat24
+
+
+# Predictions
+## 1. Compile inputs in the appropriate order
+## 2. Transform the inputs using the appropriate pipeline
+## 3. Pass transformed data through the trained model and predict
 
 '''
