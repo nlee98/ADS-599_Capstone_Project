@@ -93,8 +93,8 @@ else:
         (data["property_type_binary"] == property_type_binary_feat21)
         ]
 
-min_nights_feat7 = data_subset["min_nights"].mean()
-max_nights_feat8 = data_subset["max_nights"].mean()
+min_nights_feat7 = data_subset["minimum_nights"].mean()
+max_nights_feat8 = data_subset["maximum_nights"].mean()
 minimum_minimum_nights_feat9 = data_subset["minimum_minimum_nights"].mean()
 maximum_maximum_nights_feat10 = data_subset["maximum_maximum_nights"].mean()
 has_availability_feat11 = data_subset["has_availability"].mode()
