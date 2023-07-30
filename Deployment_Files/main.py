@@ -34,14 +34,32 @@ number_of_host_listings_feat1 = st.number_input(
 
 property_type_feat2 = st.selectbox(
     "What kind of property is this?",
-    tuple(data.property_type.values)
+    tuple(data.property_type.unique())
 )
 
 room_type_feat3 = st.selectbox(
     "What kind of room is being listed?",
-    tuple(data.room_type.values)
+    tuple(data.room_type.unique())
 )
 
 bathrooms_feat4 = st.number_input(
     "How many bathrooms are listed? "
 )
+
+bedrooms_feat5 = st.number_input(
+    "How many bedrooms are listed?"
+)
+
+price_feat6 = st.number_input(
+    "What is the listed price?"
+)
+
+min_nights_feat7 = st.number_input(
+    "What is the minimum number of nights required?"
+)
+
+max_nights_feat8 = st.number_input(
+    "What are the maximum number of nights allowed?"
+)
+
+
