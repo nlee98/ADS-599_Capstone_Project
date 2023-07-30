@@ -101,9 +101,9 @@ has_availability_feat11 = data_subset["has_availability"].mode()
 availability_30_feat12 = data_subset["availability_30"].mean()
 availability_365_feat13 = data_subset["availability_365"].mean()
 instant_bookable_feat14 = data_subset["instant_bookable"].mode()
+calculated_host_listings_count_feat15 = int(number_of_host_listings_feat1)
 
 '''
-calculated_host_listings_count_feat15
 calculated_host_listings_count_private_rooms_feat16
 calculated_host_listings_count_shared_rooms_feat17 
 reviews_per_month_feat18
