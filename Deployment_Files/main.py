@@ -81,12 +81,12 @@ if data.loc[(data["zipcode"] == int(zipcode_feat19)) &
     if data.loc[(data["zipcode"] == int(zipcode_feat19)) & 
                 (data["property_type_binary"] == str(property_type_binary_feat21)) &
                 (data["private"] == int(private_feat22))].shape[0] != 0:
+        # Subset data by zipcode, room/house, and privacy
         data_subset = data.loc[
             (data["zipcode"] == int(zipcode_feat19)) & 
             (data["property_type_binary"] == str(property_type_binary_feat21)) &
             (data["private"] == int(private_feat22))
             ]
-
 else:
     data_subset = data.loc[
         (data["zipcode"] == int(zipcode_feat19)) & 
