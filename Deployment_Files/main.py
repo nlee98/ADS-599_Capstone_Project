@@ -32,13 +32,22 @@ number_of_host_listings_feat1 = st.number_input(
     "How many listings does the host have? "
 )
 
+zipcode_feat19 = st.select_box(
+    "What is the zipcode of the listing?",
+    tuple(data.zipcode.unique())
+)
+# Pull median income info based on zipcode selected
+## Dictionary of zipcode-income info
+zipcode_income_dict = data.set_index("zipcode").to_dict()["median_income_dollars"]
+median_income_dollars_feat20 = zipcode_income_dict[int(zipcode_feat19)]
+
 property_type_feat2 = st.selectbox(
     "What kind of property is this?",
     tuple(data.property_type.unique())
 )
 
 room_type_feat3 = st.selectbox(
-    "What kind of room is being listed?",
+    "Select the type of room/house: ",
     tuple(data.room_type.unique())
 )
 
@@ -54,34 +63,52 @@ price_feat6 = st.number_input(
     "What is the listed price?"
 )
 
-'''
-min_nights_feat7 = st.number_input(
-    "What is the minimum number of nights required?"
-)
+# Extract whether the property is a single room or whole house based on selection
+property_type_binary_feat21 = "room" if "room" in property_type_feat2.lower() else "house"
+# 0/1 Binary value whether listing is private or not
+private_feat22 = 1 if "private" in property_type_feat2.lower() or "entire" in property_type_feat2.lower() else 0
 
-max_nights_feat8 = st.number_input(
-    "What are the maximum number of nights allowed?"
-)
-minimum_minimum_nights_feat9
-maximum_maximum_nights_feat10
-has_availability_feat11
-availability_30_feat12
-availability_365_feat13 
-instant_bookable_feat14
+
+# Filter the data based on the selected property type and zipcode
+# Average the following features in the data based on the filter conditions
+# Use the average to fill in the values
+
+# Find most precise filtering granularity
+# First filter by zipcode and house/room
+if data.loc[(data["zipcode"] == int(zipcode_feat19)) & 
+            (data["property_type_binary"] == property_type_binary_feat21)].shape[0] != 0:
+    # Check if filtering by privacy results in some data
+    if data.loc[(data["zipcode"] == int(zipcode_feat19)) & 
+                (data["property_type_binary"] == str(property_type_binary_feat21)) &
+                (data["private"] == int(private_feat22))].shape[0] != 0:
+        data_subset = data.loc[
+            (data["zipcode"] == int(zipcode_feat19)) & 
+            (data["property_type_binary"] == str(property_type_binary_feat21)) &
+            (data["private"] == int(private_feat22))
+            ]
+
+else:
+    data_subset = data.loc[
+        (data["zipcode"] == int(zipcode_feat19)) & 
+        (data["property_type_binary"] == property_type_binary_feat21)
+        ]
+
+min_nights_feat7 = data_subset["min_nights"].mean()
+max_nights_feat8 = data_subset["max_nights"].mean()
+minimum_minimum_nights_feat9 = data_subset["minimum_minimum_nights"].mean()
+maximum_maximum_nights_feat10 = data_subset["maximum_maximum_nights"].mean()
+has_availability_feat11 = data_subset["has_availability"].mode()
+availability_30_feat12 = data_subset["availability_30"].mean()
+availability_365_feat13 = data_subset["availability_365"].mean()
+instant_bookable_feat14 = data_subset["instant_bookable"].mode()
+
+'''
 calculated_host_listings_count_feat15
 calculated_host_listings_count_private_rooms_feat16
 calculated_host_listings_count_shared_rooms_feat17 
 reviews_per_month_feat18
-zipcode_feat19 = st.select_box(
-    "What is the zipcode of the listing?",
-    tuple(data.zipcode.unique())
-)
-median_income_dollars_feat20 
-property_type_binary_feat21 
-private_feat22
 sentiment_feat23 
 review_score_weighted_feat24
-
 
 # Predictions
 ## 1. Compile inputs in the appropriate order
