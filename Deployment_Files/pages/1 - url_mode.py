@@ -54,7 +54,7 @@ if st.button("Price Prediction"):
         listing_data = listing_data[[x for x in listing_data.columns.tolist() if x in model_data.columns.tolist()]]
 
         # Drop the property types
-        listing_data = listing_data.drop(columns=["property_type_binary"])
+        input_data = listing_data.drop(columns=["property_type_binary"])
 
         # Separate input data from target variable
         input_data = listing_data.drop(columns = ["price"])
@@ -62,7 +62,7 @@ if st.button("Price Prediction"):
 
         # Find the appropriate model - if room, use room model and transformer
         # Else: use house model and transformer
-        if input_data["property_type_binary"] == "room":
+        if listing_data["property_type_binary"] == "room":
             input_transformed = room_pipeline.transform(input_data)
             price_pred = room_model.predict(input_transformed)
             st.write(f"The predicted price is: ${price_pred}")
