@@ -44,11 +44,12 @@ price = st.number_input(
 # Prediction Button
 if st.button("Price Prediction"):
     # Clean url to match dataframe url
-    clean_url = re.match(r"[\w\W]*\?", str(url)).group(0).strip()[:-1]
+    clean_url = re.match(r"[\w\W]*\?", url).group(0).strip()[:-1]
 
     # Check if url is in dataframe:
     if clean_url in url_df["listing_url"]:
         listing_data = url_df.loc[url_df["listing_url"] == clean_url]
+        st.write("URL Found")
     else:
         st.write("The URL was not found in our database. Please use manual mode.")
 
