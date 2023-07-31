@@ -49,7 +49,6 @@ if st.button("Price Prediction"):
     # Check if url is in dataframe:
     if clean_url in url_df["listing_url"].values:
         listing_data = url_df.loc[url_df["listing_url"] == clean_url]
-        room
 
         # Select model features
         listing_data = listing_data[[x for x in listing_data.columns.tolist() if x in model_data.columns.tolist()]]
