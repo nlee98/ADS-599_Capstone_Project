@@ -91,10 +91,10 @@ def preprocess_data(data_set, pipeline = data_transformer,
 
     # Fit and transform the training data partition
     trained_pipeline = pipeline.fit(training_data_X)
-    train_data_X = pipeline.transform(training_data_X)        
+    train_data_X = trained_pipeline.transform(training_data_X)        
 
     # Transform the test data set based on the training data
-    test_data_X = pipeline.transform(testing_data_X)
+    test_data_X = trained_pipeline.transform(testing_data_X)
 
     # Remove whitespace in col names
     train_data_X.columns = train_data_X.columns.str.replace(' ', '_')
