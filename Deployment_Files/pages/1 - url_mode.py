@@ -15,7 +15,7 @@ import re
 
 # Read in Data
 model_data = pd.read_csv("Data/model_ready.csv.gz", compression = "gzip")
-url_df = pd.read_csv("Data/raw_combined.csv.gz", compression="gzip")
+url_df = pd.read_csv("Data/app_df.csv.gz", compression="gzip")
 
 # Load models
 house_model = pickle.load(open("Code Library/Models/gb_house_tuned.sav", "rb"))
@@ -49,7 +49,29 @@ if st.button("Price Prediction"):
     # Check if url is in dataframe:
     if clean_url in url_df["listing_url"].values:
         listing_data = url_df.loc[url_df["listing_url"] == clean_url]
-        st.write("URL Found")
+
+        # Select model features
+        listing_data = listing_data[[x for x in listing_data.columns.tolist() if x in model_data.columns.tolist()]]
+
+        # Drop the property types
+        listing_data = listing_data.drop(columns=['property_type_binary"])
+
+        # Separate input data from target variable
+        input_data = listing_data.drop(columns = ["price"])
+        target_price = listing_data["price"].values[0]
+
+        # Find the appropriate model - if room, use room model and transformer
+        # Else: use house model and transformer
+        if "room" in input_data:
+            input_transformed = room_pipeline.transform(input_data)
+            price_pred = room_model.predict(input_transformed)
+            st.write(f"The predicted price is: ${round(price_pred, 2)}")
+        else:
+            input_transformed = house_pipeline.transform(input_data)
+            price_pred = house_model.predict(input_transformed)
+            st.write(f"The predicted price is: ${round(price_pred, 2)}")
+
+
     else:
         st.write("The URL was not found in our database. Please use manual mode.")
 
