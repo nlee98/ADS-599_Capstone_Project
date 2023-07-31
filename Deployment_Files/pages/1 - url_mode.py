@@ -65,10 +65,12 @@ if st.button("Price Prediction"):
         if listing_data["property_type_binary"].values[0] == "room":
             input_transformed = room_pipeline.transform(input_data)
             price_pred = room_model.predict(input_transformed)
+            price_pred = round(price_pred[0], 2)
             st.write(f"The predicted price is: ${price_pred}")
         else:
             input_transformed = house_pipeline.transform(input_data)
             price_pred = house_model.predict(input_transformed)
+            price_pred = round(price_pred[0], 2)
             st.write(f"The predicted price is: ${price_pred}")
 
 
