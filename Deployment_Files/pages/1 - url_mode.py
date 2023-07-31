@@ -41,5 +41,24 @@ price = st.number_input(
     "What is the listed nightly price? "
 )
 
-# Clean url to match dataframe url
-clean_url = re.match(r"[\w\W]*\?", str(url)).group(0).strip()[:-1]
+# Prediction Button
+if st.button("Price Prediction"):
+    # Clean url to match dataframe url
+    clean_url = re.match(r"[\w\W]*\?", str(url)).group(0).strip()[:-1]
+
+    # Check if url is in dataframe:
+    if clean_url in url_df["listing_url"]:
+        listing_data = url_df.loc[url_df["listing_url"] == clean_url]
+    else:
+        st.write("The URL was not found in our database. Please use manual mode.")
+
+    '''
+    input_species = encoder.transform(np.expand_dims(inp_species, -1))
+
+    inputs = np.expand_dims(
+    [int(input_species), input_Length1, input_Length2, input_Length3, input_Height, input_Width], 0)
+
+    prediction = best_xgboost_model.predict(inputs)
+    print("final pred", np.squeeze(prediction, -1))
+    st.write(f"Your fish weight is: {np.squeeze(prediction, -1)} Gram")
+    '''
