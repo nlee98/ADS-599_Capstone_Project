@@ -103,16 +103,67 @@ availability_365_feat13 = data_subset["availability_365"].mean()
 instant_bookable_feat14 = data_subset["instant_bookable"].mode()
 calculated_host_listings_count_feat15 = int(number_of_host_listings_feat1)
 
-'''
-calculated_host_listings_count_private_rooms_feat16
-calculated_host_listings_count_shared_rooms_feat17 
-reviews_per_month_feat18
-sentiment_feat23 
-review_score_weighted_feat24
+## TEMPORARILY Use the mean of these features ##
+calculated_host_listings_count_private_rooms_feat16 = data_subset["calculated_host_listings_count_private_rooms"].mean()
+calculated_host_listings_count_shared_rooms_feat17 = data_subset["calculated_host_listings_count_shared_rooms"].mean()
+reviews_per_month_feat18 = data_subset["reviews_per_month"].mean()
+sentiment_feat23 = data_subset["sentiment"].mean()
+review_score_weighted_feat24 = data_subset["review_score_weighted"].mean()
 
-# Predictions
-## 1. Compile inputs in the appropriate order
-## 2. Transform the inputs using the appropriate pipeline
-## 3. Pass transformed data through the trained model and predict
 
-'''
+# Push all entries into a list
+values = [
+    number_of_host_listings_feat1, property_type_feat2, room_type_feat3,
+    bathrooms_feat4, bedrooms_feat5, price_feat6,
+    min_nights_feat7, max_nights_feat8, minimum_minimum_nights_feat9,
+    maximum_maximum_nights_feat10, has_availability_feat11,
+    availability_30_feat12, availability_365_feat13,
+    instant_bookable_feat14, calculated_host_listings_count_feat15,
+    calculated_host_listings_count_private_rooms_feat16,
+    calculated_host_listings_count_shared_rooms_feat17,
+    reviews_per_month_feat18, zipcode_feat19,
+    median_income_dollars_feat20, property_type_binary_feat21,
+    private_feat22, sentiment_feat23,
+    review_score_weighted_feat24
+]
+
+column_names = data.columns.tolist()
+
+# Make a dictionary {column_name : [value]}
+input_dict = {}
+for i in range(0, len(column_names)):
+    intput_dict[column_names[i]] = values[i]
+
+# Convert input dict to dataframe
+input_df = pd.DataFrame(input_dict)
+
+# Prediction Button
+if st.button("Price Prediction"):
+    # Drop the property types
+    input_data = input_df.drop(columns=["property_type_binary"])
+
+    # Separate input data from target variable
+    input_data = listing_data.drop(columns = ["price"])
+    target_price = listing_data["price"].values[0]
+
+    # Find the appropriate model - if room, use room model and transformer
+    # Else: use house model and transformer
+    if input_df["property_type_binary"].values[0] == "room":
+        input_transformed = room_pipeline.transform(input_data)
+        price_pred = room_model.predict(input_transformed)
+    else:
+        input_transformed = house_pipeline.transform(input_data)
+        price_pred = house_model.predict(input_transformed)
+        
+    price_pred = round(price_pred[0], 2)
+    st.write(f"The predicted price is: ${price_pred}")
+
+    # Print price differences
+    price_diff = round(price - price_pred, 2)
+    st.write(f"The difference between the listed price and the predicted price is {price_diff}")
+
+    price_diff_percent = round(((price_diff/price) * 100), 2)
+    st.write(f"That is a {price_diff_percent}% difference")
+
+else:
+    st.write("Could not make a price prediction. Please try again.")
