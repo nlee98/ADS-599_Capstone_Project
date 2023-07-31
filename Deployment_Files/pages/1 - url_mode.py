@@ -47,7 +47,7 @@ if st.button("Price Prediction"):
     clean_url = re.match(r"[\w\W]*\?", url).group(0).strip()[:-1]
 
     # Check if url is in dataframe:
-    if clean_url in url_df["listing_url"]:
+    if clean_url in url_df["listing_url"].values:
         listing_data = url_df.loc[url_df["listing_url"] == clean_url]
         st.write("URL Found")
     else:
