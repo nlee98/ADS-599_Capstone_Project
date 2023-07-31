@@ -73,29 +73,37 @@ data_transformer = ColumnTransformer(
     ]
 )
 
-# A function to output preprocessed, model-ready data using the data_transformer
-def preprocess_data(data_set, pipeline = data_transformer,
-                    num_cols = num_cols, categorical_cols = categorical_cols):
+# Data partitioning 75:25 Train-Test Split
+house_train, house_test = train_test_split(
+        house_df, test_size = 0.25, random_state = 2023
+    )
+room_train, room_test = train_test_split(
+        room_df, test_size = 0.25, random_state = 2023
+    )    
     
-    # Data partitioning 75:25 Train-Test Split
-    training_data, testing_data = train_test_split(
-        data_set, test_size = 0.25, random_state = 2023
-        )
+# Separate target from df
+house_train_X = house_train.drop(columns = ['price'])
+house_train_y = house_train['price']
+room_train_X = room_train.drop(columns = ['price'])
+room_train_y = room_train['price']
+
+house_test_X = house_test.drop(columns = ['price'])
+house_test_y = house_test['price']
+room_test_X = room_test.drop(columns = ['price'])
+room_test_y = room_test['price']
+
+# Fit and transform the training data partition
+print("Preprocessing Data...")
+#data_transformer.fit(house_train_X)
+#pickle.dump(data_transformer, open("Deployment_Files/house_pipeline.sav", "wb"))
+# train_data_X = data_transformer.transform(house_train_X) 
+# test_data_X = trained_pipeline.transform(house_test_X)
+
+data_transformer.fit(room_train_X)
+pickle.dump(data_transformer, open("Deployment_Files/room_pipeline.sav", "wb"))
+
     
-    # Separate target from df
-    training_data_X = training_data.drop(columns = ['price'])
-    train_data_y = training_data['price']
-
-    testing_data_X = testing_data.drop(columns = ['price'])
-    test_data_y = testing_data['price']
-
-    # Fit and transform the training data partition
-    trained_pipeline = pipeline.fit(training_data_X)
-    train_data_X = trained_pipeline.transform(training_data_X)        
-
-    # Transform the test data set based on the training data
-    test_data_X = trained_pipeline.transform(testing_data_X)
-
+'''
     # Remove whitespace in col names
     train_data_X.columns = train_data_X.columns.str.replace(' ', '_')
     test_data_X.columns = test_data_X.columns.str.replace(' ', '_')
@@ -103,17 +111,6 @@ def preprocess_data(data_set, pipeline = data_transformer,
     # Remove slashes in col names
     train_data_X.columns = train_data_X.columns.str.replace('/', '_')
     test_data_X.columns = test_data_X.columns.str.replace('/', '_')
+'''
 
-    return train_data_X, train_data_y, test_data_X, test_data_y, trained_pipeline
-
-print("Preprocessing Data...")
-# Preprocess the house-type and room-type data sets
-house_train_X, house_train_y, house_test_X, house_test_y, house_pipeline = preprocess_data(house_df)
-room_train_X, room_train_y, room_test_X, room_test_y, room_pipeline = preprocess_data(room_df)
-print("Data Processed!")
-
-print("Exporting Pipelines...")
-# Export trained pipeline
-pickle.dump(house_pipeline, open("Deployment_Files/house_pipeline.sav", "wb"))
-pickle.dump(room_pipeline, open("Deployment_Files/room_pipeline.sav", "wb"))
 print("All Done!")
