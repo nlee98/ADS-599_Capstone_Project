@@ -12,3 +12,21 @@ import seaborn as sns # Version 0.12.2
 import matplotlib.pyplot as plt # version 3.6.3
 from sklearn.ensemble import GradientBoostingRegressor # Version 1.3.0
 import re
+
+# Read in Data
+data = pd.read_csv("Data/model_ready.csv.gz", compression = "gzip")
+
+# Load models
+house_model = pickle.load(open("Code Library/Models/gb_house_tuned.sav", "rb"))
+room_model = pickle.load(open("Code Library/Models/gb_room_tuned.sav", "rb"))
+
+# Load fitted pipelines
+house_pipeline = pickle.load(open("Deployment_Files/house_pipeline.sav", "rb"))
+room_pipeline = pickle.load(open("Deployment_Files/room_pipeline.sav", "rb"))
+
+# Streamlit Setup
+st.header("San Diego Airbnb Price Estimator - URL Mode")
+st.caption("""This mode will pull the necessary information for predicting 
+        the price based on a provided Airbnb URL.
+    """)
+
