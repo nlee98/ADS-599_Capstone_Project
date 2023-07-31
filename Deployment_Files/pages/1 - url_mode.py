@@ -54,7 +54,7 @@ if st.button("Price Prediction"):
         listing_data = listing_data[[x for x in listing_data.columns.tolist() if x in model_data.columns.tolist()]]
 
         # Drop the property types
-        listing_data = listing_data.drop(columns=['property_type_binary"])
+        listing_data = listing_data.drop(columns=["property_type_binary"])
 
         # Separate input data from target variable
         input_data = listing_data.drop(columns = ["price"])
