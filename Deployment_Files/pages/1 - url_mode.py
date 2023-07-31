@@ -49,6 +49,7 @@ if st.button("Price Prediction"):
     # Check if url is in dataframe:
     if clean_url in url_df["listing_url"].values:
         listing_data = url_df.loc[url_df["listing_url"] == clean_url]
+        room
 
         # Select model features
         listing_data = listing_data[[x for x in listing_data.columns.tolist() if x in model_data.columns.tolist()]]
@@ -62,7 +63,7 @@ if st.button("Price Prediction"):
 
         # Find the appropriate model - if room, use room model and transformer
         # Else: use house model and transformer
-        if listing_data["property_type_binary"] == "room":
+        if listing_data["property_type_binary"].values[0] == "room":
             input_transformed = room_pipeline.transform(input_data)
             price_pred = room_model.predict(input_transformed)
             st.write(f"The predicted price is: ${price_pred}")
