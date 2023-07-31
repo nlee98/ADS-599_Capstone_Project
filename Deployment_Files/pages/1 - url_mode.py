@@ -62,7 +62,7 @@ if st.button("Price Prediction"):
 
         # Find the appropriate model - if room, use room model and transformer
         # Else: use house model and transformer
-        if "room" in input_data:
+        if input_data["property_type_binary"] == "room":
             input_transformed = room_pipeline.transform(input_data)
             price_pred = room_model.predict(input_transformed)
             st.write(f"The predicted price is: ${price_pred}")
