@@ -35,3 +35,11 @@ st.caption("""This mode will pull the necessary information for predicting
 url = st.text_input(
     "Enter an Airbnb URL: "
 )
+
+# Listed Price
+price = st.number_input(
+    "What is the listed nightly price? "
+)
+
+# Clean url to match dataframe url
+clean_url = re.match(r"[\w\W]*\?", str(url)).group(0).strip()[:-1]
