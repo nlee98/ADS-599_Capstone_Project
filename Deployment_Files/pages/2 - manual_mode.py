@@ -159,6 +159,7 @@ if st.button("Price Prediction"):
     st.write(f"The predicted price is: ${price_pred}")
 
     # Print price differences
+    price = price_feat6
     price_diff = round(price - price_pred, 2)
     st.write(f"The difference between the listed price and the predicted price is {price_diff}")
 
