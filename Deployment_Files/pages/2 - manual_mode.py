@@ -132,7 +132,7 @@ column_names = data.columns.tolist()
 # Make a dictionary {column_name : [value]}
 input_dict = {}
 for i in range(0, len(column_names)):
-    intput_dict[column_names[i]] = values[i]
+    input_dict[column_names[i]] = values[i]
 
 # Convert input dict to dataframe
 input_df = pd.DataFrame(input_dict)
