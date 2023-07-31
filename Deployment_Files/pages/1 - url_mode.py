@@ -14,7 +14,8 @@ from sklearn.ensemble import GradientBoostingRegressor # Version 1.3.0
 import re
 
 # Read in Data
-data = pd.read_csv("Data/model_ready.csv.gz", compression = "gzip")
+model_data = pd.read_csv("Data/model_ready.csv.gz", compression = "gzip")
+url_df = pd.read_csv("../Data/raw_combined.csv.gz", compression="gzip")
 
 # Load models
 house_model = pickle.load(open("Code Library/Models/gb_house_tuned.sav", "rb"))
@@ -30,3 +31,7 @@ st.caption("""This mode will pull the necessary information for predicting
         the price based on a provided Airbnb URL.
     """)
 
+# URL Field
+url = st.text_input(
+    "Enter an Airbnb URL: "
+)
