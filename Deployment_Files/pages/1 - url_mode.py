@@ -65,25 +65,19 @@ if st.button("Price Prediction"):
         if listing_data["property_type_binary"].values[0] == "room":
             input_transformed = room_pipeline.transform(input_data)
             price_pred = room_model.predict(input_transformed)
-            price_pred = round(price_pred[0], 2)
-            st.write(f"The predicted price is: ${price_pred}")
         else:
             input_transformed = house_pipeline.transform(input_data)
             price_pred = house_model.predict(input_transformed)
-            price_pred = round(price_pred[0], 2)
-            st.write(f"The predicted price is: ${price_pred}")
+        
+        price_pred = round(price_pred[0], 2)
+        st.write(f"The predicted price is: ${price_pred}")
 
+        # Print price differences
+        price_diff = round(price - price_pred, 2)
+        st.write(f"The difference between the listed price and the predicted price is {price_diff}")
+
+        price_diff_percent = round(((price_diff/price) * 100), 2)
+        st.write(f"That is a {price_diff_percent}% difference")
 
     else:
         st.write("The URL was not found in our database. Please use manual mode.")
-
-    '''
-    input_species = encoder.transform(np.expand_dims(inp_species, -1))
-
-    inputs = np.expand_dims(
-    [int(input_species), input_Length1, input_Length2, input_Length3, input_Height, input_Width], 0)
-
-    prediction = best_xgboost_model.predict(inputs)
-    print("final pred", np.squeeze(prediction, -1))
-    st.write(f"Your fish weight is: {np.squeeze(prediction, -1)} Gram")
-    '''
