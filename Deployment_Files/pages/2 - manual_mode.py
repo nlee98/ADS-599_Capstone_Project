@@ -140,7 +140,7 @@ input_df = pd.DataFrame(input_dict)
 # Prediction Button
 if st.button("Price Prediction"):
     # Drop the property types
-    input_data = input_df.drop(columns=["property_type_binary"])
+    listing_data = input_df.drop(columns=["property_type_binary"])
 
     # Separate input data from target variable
     input_data = listing_data.drop(columns = ["price"])
