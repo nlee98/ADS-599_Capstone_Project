@@ -65,11 +65,11 @@ if st.button("Price Prediction"):
         if "room" in input_data:
             input_transformed = room_pipeline.transform(input_data)
             price_pred = room_model.predict(input_transformed)
-            st.write(f"The predicted price is: ${round(price_pred, 2)}")
+            st.write(f"The predicted price is: ${price_pred}")
         else:
             input_transformed = house_pipeline.transform(input_data)
             price_pred = house_model.predict(input_transformed)
-            st.write(f"The predicted price is: ${round(price_pred, 2)}")
+            st.write(f"The predicted price is: ${price_pred}")
 
 
     else:

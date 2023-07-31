@@ -94,8 +94,8 @@ room_test_y = room_test['price']
 
 # Fit and transform the training data partition
 print("Preprocessing Data...")
-#data_transformer.fit(house_train_X)
-#pickle.dump(data_transformer, open("Deployment_Files/house_pipeline.sav", "wb"))
+data_transformer.fit(house_train_X)
+pickle.dump(data_transformer, open("Deployment_Files/house_pipeline.sav", "wb"))
 # train_data_X = data_transformer.transform(house_train_X) 
 # test_data_X = trained_pipeline.transform(house_test_X)
 
