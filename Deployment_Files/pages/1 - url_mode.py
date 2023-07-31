@@ -15,7 +15,7 @@ import re
 
 # Read in Data
 model_data = pd.read_csv("Data/model_ready.csv.gz", compression = "gzip")
-url_df = pd.read_csv("../Data/raw_combined.csv.gz", compression="gzip")
+url_df = pd.read_csv("Data/raw_combined.csv.gz", compression="gzip")
 
 # Load models
 house_model = pickle.load(open("Code Library/Models/gb_house_tuned.sav", "rb"))

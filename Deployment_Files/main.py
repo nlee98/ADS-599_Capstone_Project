@@ -25,7 +25,7 @@ room_pipeline = pickle.load(open("Deployment_Files/room_pipeline.sav", "rb"))
 
 # Streamlit Setup
 st.header("San Diego Airbnb Price Estimator")
-st.caption("Enter information on your property to get a price estimate.")
+st.caption("FUTURE HOME PAGE")
 
 ## Input info for the features - not all 24 features can be inputted so...
 number_of_host_listings_feat1 = st.number_input(
