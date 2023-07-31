@@ -165,6 +165,3 @@ if st.button("Price Prediction"):
 
     price_diff_percent = round(((price_diff/price) * 100), 2)
     st.write(f"That is a {price_diff_percent}% difference")
-
-else:
-    st.write("Could not make a price prediction. Please try again.")
