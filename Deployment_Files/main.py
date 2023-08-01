@@ -13,7 +13,7 @@ st.markdown("""
     Welcome to our application for predicting Airbnb prices in San Diego, California. 
 """)
 
-st.write("""This application has two mode: URL Mode and Manual Mode.
+st.write("""\n\tThis application has two mode: URL Mode and Manual Mode.
          In URL Mode, you can simply copy and paste the URL of an Airbnb listing of interest, enter the listed price,
          and click _Price Prediction_ to get a price estimate
          """)
