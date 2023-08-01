@@ -10,7 +10,6 @@ import streamlit as st # Version 1.25.0
 st.header("San Diego Airbnb Price Estimator")
 
 st.markdown("""
-    Welcome to our application for predicting Airbnb prices in San Diego, California.
-
-    This application has two mode: URL Mode and Manual Mode.
+    Welcome to our application for predicting Airbnb prices in San Diego, California. 
+            This application has two mode: URL Mode and Manual Mode.
 """)
