@@ -24,6 +24,7 @@ house_pipeline = pickle.load(open("Deployment_Files/house_pipeline.sav", "rb"))
 room_pipeline = pickle.load(open("Deployment_Files/room_pipeline.sav", "rb"))
 
 # Streamlit Setup
+st.set_page_config(page_title="Manual Mode")
 st.header("San Diego Airbnb Price Estimator - Manual Mode")
 st.caption("This mode asks that you manually enter the following information: ")
 
