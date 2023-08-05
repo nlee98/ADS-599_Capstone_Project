@@ -6,6 +6,9 @@ This file is the home page for the application
 # Library Imports
 import streamlit as st # Version 1.25.0
 from st_pages import Page, show_pages
+
+st.set_config_file("config.toml")
+
 # Setup Sidebar
 show_pages(
     [

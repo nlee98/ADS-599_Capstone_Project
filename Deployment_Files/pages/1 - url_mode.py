@@ -26,7 +26,6 @@ house_pipeline = pickle.load(open("Deployment_Files/house_pipeline.sav", "rb"))
 room_pipeline = pickle.load(open("Deployment_Files/room_pipeline.sav", "rb"))
 
 # Streamlit Setup
-st.set_config_file("config.toml")
 st.header("URL Mode")
 st.caption("""This mode will pull the necessary information for predicting 
         the price based on a provided Airbnb URL.
