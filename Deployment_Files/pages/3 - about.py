@@ -20,9 +20,9 @@ st.markdown("""
     Each model is a gradient boosted regressor.
     The models work by starting with a "decision tree."
     This tree usually doesn't create the most accurate predictions,
-    so build a new tree that tries to correct the old tree's errors (this is boosting!)
+    so we build a new tree that tries to correct the old tree's errors (this is boosting!).
     We keep repeating this process until we create a pre-determined number of trees.
-    Each of our trees will get a weighted vote based on its accuracy, and these votes are combined to generate our final prediction!
+    Each of our trees will receive a weighted vote based on its accuracy, and these votes are combined to generate our final prediction!
     Below is a brief overview of the important features in both of our models.   
 """)
 
