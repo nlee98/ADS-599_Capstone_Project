@@ -38,7 +38,11 @@ url = st.text_input(
 
 # Listed Price
 price = st.number_input(
-    "What is the listed nightly price? "
+    label="Nightly price:",
+    min_value=0,
+    value=0,
+    step=1,
+    help="Listed at top of the page, directly under the photos."
 )
 
 # Prediction Button
