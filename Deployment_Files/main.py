@@ -26,12 +26,14 @@ st.markdown("""
 """)
 
 st.markdown("""
-    This application has two modes: URL Mode and Manual Mode.
+    This application has two modes: *URL Mode* and *Manual Mode*.
          
             
-    - In URL Mode, you can simply copy and paste the URL of an Airbnb listing of interest, enter the listed price,
+    - In *URL Mode*, you can simply copy and paste the URL of an Airbnb listing of interest, enter the listed price,
     and click _Price Prediction_ to get a price estimate.
     
             
-    - In Manual Mode, you can manually enter some data regarding the property and the lister to get a price estimate.
+    - In *Manual Mode*, you can manually enter some data regarding the property and host to get a price estimate.
+    
+    For info about the creators, models, and code, please visit the *About* section.
 """)
