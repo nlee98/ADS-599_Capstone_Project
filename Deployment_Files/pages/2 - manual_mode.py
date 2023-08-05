@@ -30,7 +30,7 @@ st.caption("This mode asks that you manually enter the following information: ")
 
 ## Input info for the features - not all 24 features can be inputted so...
 number_of_host_listings_feat1 = st.number_input(
-    "How many listings does the host have? "
+    "How many listings does the host have?\n To find this, click the host's profile picture at the bottom of the page."
 )
 
 zipcode_feat19 = st.selectbox(
