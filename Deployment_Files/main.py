@@ -37,3 +37,8 @@ st.markdown("""
     
     For info about the creators, models, and code, please visit the _About_ section.
 """)
+
+sd_path = 'Deployment_Files/pages/images/SD.jfif'
+
+st.image(sd_path,
+         caption= 'Photo by: JIM GRANT sdc')
