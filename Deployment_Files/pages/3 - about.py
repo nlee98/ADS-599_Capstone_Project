@@ -26,8 +26,8 @@ st.markdown("""
     Below is a brief overview of the important features in both of our models.   
 """)
 
-house_path = 'images/house.png'
-room_path = 'images/room.png'
+house_path = 'Deployment_Files/pages/images/house.png'
+room_path = 'Deployment_Files/pages/images/room.png'
 
 st.image(house_path)
 st.image(room_path)
