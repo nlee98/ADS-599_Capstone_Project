@@ -29,7 +29,11 @@ st.header("San Diego Airbnb Price Estimator - Manual Mode")
 st.caption("This mode asks that you manually enter the following information: ")
 
 price_feat6 = st.number_input(
-    "Nightly price: \n\nListed at top of the page, directly under the photos."
+    label="Nightly price: \n\nListed at top of the page, directly under the photos.",
+    min_value=0,
+    value=0,
+    step=1,
+    help="Listed at top of the page, directly under the photos."
 )
 
 property_type_feat2 = st.selectbox(
@@ -42,7 +46,7 @@ bathrooms_feat4 = st.number_input(
 )
 
 bedrooms_feat5 = st.number_input(
-    "Bedrooms: \n\nListed at the top of the page, directly under the photos as \"bedroom\"?"
+    "Bedrooms: \n\nListed at the top of the page, directly under the photos as \"bedroom\"."
 )
 
 room_type_feat3 = st.selectbox(
