@@ -29,7 +29,7 @@ st.header("San Diego Airbnb Price Estimator - Manual Mode")
 st.caption("This mode asks that you manually enter the following information: ")
 
 price_feat6 = st.number_input(
-    label="Nightly price: \n\nListed at top of the page, directly under the photos.",
+    label="Nightly price:",
     min_value=0,
     value=0,
     step=1,
@@ -37,26 +37,37 @@ price_feat6 = st.number_input(
 )
 
 property_type_feat2 = st.selectbox(
-    "Property Type: \n\nListed at the top of the page, directly under the photos.",
-    tuple(data.property_type.unique())
+    "Property Type:",
+    tuple(data.property_type.unique()),
+    help= "Listed at the top of the page, directly under the photos."
 )
 
 bathrooms_feat4 = st.number_input(
-    "Bathrooms: \n\nListed at the top of the page, directly under the photos. "
+    label="Bathrooms:",
+    min_value=0,
+    value=0,
+    step=1,
+    help="Listed at top of the page, directly under the photos."
 )
 
 bedrooms_feat5 = st.number_input(
-    "Bedrooms: \n\nListed at the top of the page, directly under the photos as \"bedroom\"."
+    label="Bedrooms:",
+    min_value=0,
+    value=0,
+    step=1,
+    help="Listed at the top of the page, directly under the photos as \"bedroom\"."
 )
 
 room_type_feat3 = st.selectbox(
-    "Room/house type: \n\nTypically in the description, or based on the photos.",
-    tuple(data.room_type.unique())
+    "Room/house type:",
+    tuple(data.room_type.unique()),
+    help="Typically in the description, or based on the photos."
 )
 
 zipcode_feat19 = st.selectbox(
-    "Zipcode: \n\nTo find this, look at the map near the bottom of the page and lookup a nearby intersection.",
-    tuple(data.zipcode.unique())
+    "Zipcode:",
+    tuple(data.zipcode.unique()),
+    help="To find this, look at the map near the bottom of the page and lookup a nearby intersection."
 )
 # Pull median income info based on zipcode selected
 ## Dictionary of zipcode-income info
@@ -66,7 +77,11 @@ median_income_dollars_feat20 = zipcode_income_dict[int(zipcode_feat19)]
 
 ## Input info for the features - not all 24 features can be inputted so...
 number_of_host_listings_feat1 = st.number_input(
-    "Host Listings: \n\nTo find this, click the host's profile picture at the bottom of the page."
+    label="Host Listings:",
+    min_value=0,
+    value=0,
+    step=1,
+    help="To find this, click the host's profile picture at the bottom of the page."
 )
 
 
