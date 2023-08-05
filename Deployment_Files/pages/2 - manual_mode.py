@@ -185,17 +185,17 @@ if st.button("Price Prediction"):
     price = price_feat6
     # Print price differences
     price_diff = round(price - price_pred, 2)
-    price_diff_percent = round(((price_diff/price) * 100), 2)
+    price_diff_percent = round(((price_diff/price_pred) * 100), 2)
 
     if price_diff == 0:
             st.write(f"The predicted price and model price are exactly the same!")
         
     elif price_diff < 0:
-            st.write(f"""A good deal! 🎉 The actual price is ${-price_diff} lower than the listed price.
+            st.write(f"""A good deal! 🎉 The listed price is ${-price_diff} lower than the predicted price.
                      \nA {-price_diff_percent}% discount!""")
 
     elif price_diff > 0:
-            st.write(f"""Oh no! 💔 The actual price is ${price_diff} higher than the listed price.
+            st.write(f"""Oh no! 💔 The listed price is ${price_diff} higher than the predicted price.
                      \nA {price_diff_percent}% overpay!""")
 
         
