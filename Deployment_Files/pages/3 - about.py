@@ -1,5 +1,6 @@
 # Libraries
 import streamlit as st
+from PIL import Image
 
 # Streamlit page stuff
 st.header("About Us:")
@@ -24,3 +25,9 @@ st.markdown("""
     Each of our trees will get a weighted vote based on its accuracy, and these votes are combined to generate our final prediction!
     Below is a brief overview of the important features in both of our models.   
 """)
+
+house_path = 'images/house.png'
+room_path = 'images/room.png'
+
+st.image(house_path)
+st.image(room_path)
