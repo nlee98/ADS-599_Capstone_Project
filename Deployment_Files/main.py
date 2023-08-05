@@ -11,8 +11,8 @@ from st_pages import Page, show_pages
 show_pages(
     [
         Page("main.py", "Home", "🏠"),
-        Page("pages/url_mode.py", "URL Mode", "🌐"),
-        Page("pages/manual_mode.py", "Manual Mode", "✏️")
+        Page("pages/1 - url_mode.py", "URL Mode", "🌐"),
+        Page("pages/2 - manual_mode.py", "Manual Mode", "✏️")
     ]
 )
 
@@ -20,7 +20,7 @@ show_pages(
 st.header("Fairbnb: A San Diego Airbnb Price Fairness Estimator")
 
 st.markdown("""
-    Welcome to our application for predicting Airbnb prices in San Diego, California. 
+    Welcome to our application for predicting Airbnb price fairness in San Diego, California. 
 """)
 
 st.markdown("""
