@@ -28,13 +28,30 @@ st.set_page_config(page_title="Manual Mode")
 st.header("San Diego Airbnb Price Estimator - Manual Mode")
 st.caption("This mode asks that you manually enter the following information: ")
 
-## Input info for the features - not all 24 features can be inputted so...
-number_of_host_listings_feat1 = st.number_input(
-    "Host Listings: \n\nTo find this, click the host's profile picture at the bottom of the page."
+price_feat6 = st.number_input(
+    "Nightly price: \n\nListed at top of the page, directly under the photos."
+)
+
+property_type_feat2 = st.selectbox(
+    "Property Type: \n\nListed at the top of the page, directly under the photos.",
+    tuple(data.property_type.unique())
+)
+
+bathrooms_feat4 = st.number_input(
+    "Bathrooms: \n\nListed at the top of the page, directly under the photos. "
+)
+
+bedrooms_feat5 = st.number_input(
+    "Bedrooms: \n\nListed at the top of the page, directly under the photos as \"bedroom\"?"
+)
+
+room_type_feat3 = st.selectbox(
+    "Room/house type: \n\nTypically in the description, or based on the photos.",
+    tuple(data.room_type.unique())
 )
 
 zipcode_feat19 = st.selectbox(
-    "What is the zipcode of the listing? To find this, look at the map near the bottom of the page and Google a nearby intersection.",
+    "Zipcode: \n\nTo find this, look at the map near the bottom of the page and lookup a nearby intersection.",
     tuple(data.zipcode.unique())
 )
 # Pull median income info based on zipcode selected
@@ -42,27 +59,14 @@ zipcode_feat19 = st.selectbox(
 zipcode_income_dict = data.set_index("zipcode").to_dict()["median_income_dollars"]
 median_income_dollars_feat20 = zipcode_income_dict[int(zipcode_feat19)]
 
-property_type_feat2 = st.selectbox(
-    "What kind of property is this? Listed at the top of the page, directly under the photos.",
-    tuple(data.property_type.unique())
+
+## Input info for the features - not all 24 features can be inputted so...
+number_of_host_listings_feat1 = st.number_input(
+    "Host Listings: \n\nTo find this, click the host's profile picture at the bottom of the page."
 )
 
-room_type_feat3 = st.selectbox(
-    "Select the type of room/house: ",
-    tuple(data.room_type.unique())
-)
 
-bathrooms_feat4 = st.number_input(
-    "How many bathrooms are listed? "
-)
 
-bedrooms_feat5 = st.number_input(
-    "How many bedrooms are listed?"
-)
-
-price_feat6 = st.number_input(
-    "What is the listed price?"
-)
 
 # Extract whether the property is a single room or whole house based on selection
 property_type_binary_feat21 = "room" if "room" in property_type_feat2.lower() else "house"
