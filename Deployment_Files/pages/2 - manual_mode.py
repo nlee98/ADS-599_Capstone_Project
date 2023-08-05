@@ -179,7 +179,7 @@ if st.button("Price Prediction"):
         price_pred = house_model.predict(input_transformed)
         
     price_pred = round(price_pred[0], 2)
-    st.write(f"The predicted price is: ${price_pred}")
+    st.write(f"The predicted price is: ${price_pred}.")
 
     # Print price differences
     price = price_feat6
