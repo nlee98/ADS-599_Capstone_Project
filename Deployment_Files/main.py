@@ -11,7 +11,7 @@ from st_pages import Page, show_pages
 show_pages(
     [
         Page("main.py", "Home", "🏠"),
-        Page("pages/url_mode.py", "URL Mode"),
+        Page("pages/url_mode.py", "URL Mode", "🌐"),
         Page("pages/manual_mode.py", "Manual Mode", "✏️")
     ]
 )
