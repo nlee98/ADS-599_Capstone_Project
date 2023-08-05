@@ -10,9 +10,9 @@ from st_pages import Page, show_pages
 # Setup Sidebar
 show_pages(
     [
-        Page("main.py", "Home", "🏠"),
-        Page("pages/1 - url_mode.py", "URL Mode", "🌐"),
-        Page("pages/2 - manual_mode.py", "Manual Mode", "✏️")
+        Page("Deployment_Files/main.py", "Home", "🏠"),
+        Page("Deployment_Files/pages/1 - url_mode.py", "URL Mode", "🌐"),
+        Page("Deployment_Files/pages/2 - manual_mode.py", "Manual Mode", "✏️")
     ]
 )
 
