@@ -3,7 +3,7 @@ _USD ADS-599 Capstone Project Summer 2023 by Hunter Blum, Kyle Esteban Dalope, a
 
 ## Overview
 
-This study aimed to create a web application that could create a fair estimate of Airbnb prices in San Diego, CA. The web application can be found [here](https://ads-599capstoneproject.streamlit.app/)
+This study aimed to create a web application that could create a fair estimate of Airbnb prices in San Diego, CA. The web application can be found [here](https://fairbnb.streamlit.app/)
 
 ## Repository Contents
 [_Code Library Folder_](https://github.com/nlee98/ADS-599_Capstone_Project/tree/main/Code%20Library)
