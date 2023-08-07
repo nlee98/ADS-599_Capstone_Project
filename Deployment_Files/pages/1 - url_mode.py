@@ -26,7 +26,7 @@ house_pipeline = pickle.load(open("Deployment_Files/house_pipeline.sav", "rb"))
 room_pipeline = pickle.load(open("Deployment_Files/room_pipeline.sav", "rb"))
 
 # Streamlit Setup
-st.header("San Diego Airbnb Price Estimator - URL Mode")
+st.header("URL Mode")
 st.caption("""This mode will pull the necessary information for predicting 
         the price based on a provided Airbnb URL.
     """)
@@ -38,7 +38,11 @@ url = st.text_input(
 
 # Listed Price
 price = st.number_input(
-    "What is the listed nightly price? "
+    label="Nightly price:",
+    min_value=0,
+    value=0,
+    step=1,
+    help="Listed at top of the page, directly under the photos."
 )
 
 # Prediction Button
@@ -70,14 +74,22 @@ if st.button("Price Prediction"):
             price_pred = house_model.predict(input_transformed)
         
         price_pred = round(price_pred[0], 2)
-        st.write(f"The predicted price is: ${price_pred}")
+        st.write(f"The predicted price is: ${price_pred}.")
 
         # Print price differences
         price_diff = round(price - price_pred, 2)
-        st.write(f"The difference between the listed price and the predicted price is {price_diff}")
+        price_diff_percent = round(((price_diff/price_pred) * 100), 2)
 
-        price_diff_percent = round(((price_diff/price) * 100), 2)
-        st.write(f"That is a {price_diff_percent}% difference")
+        if price_diff == 0:
+            st.write(f"The predicted price and model price are exactly the same!")
+        
+        elif price_diff < 0:
+            st.write(f"""A good deal! 🎉 The listed price is ${-price_diff} lower than the predicted price
+                     \nA {-price_diff_percent}% discount!""")
+
+        elif price_diff > 0:
+            st.write(f"""Oh no! 💔 The listed price is ${price_diff} higher than the predicted price.
+                     \nA {price_diff_percent}% overpay!""")
 
     else:
         st.write("The URL was not found in our database. Please use manual mode.")

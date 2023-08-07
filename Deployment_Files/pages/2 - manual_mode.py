@@ -24,44 +24,67 @@ house_pipeline = pickle.load(open("Deployment_Files/house_pipeline.sav", "rb"))
 room_pipeline = pickle.load(open("Deployment_Files/room_pipeline.sav", "rb"))
 
 # Streamlit Setup
-st.header("San Diego Airbnb Price Estimator - Manual Mode")
+st.header("Manual Mode")
 st.caption("This mode asks that you manually enter the following information: ")
 
-## Input info for the features - not all 24 features can be inputted so...
-number_of_host_listings_feat1 = st.number_input(
-    "How many listings does the host have? "
+price_feat6 = st.number_input(
+    label="Nightly price:",
+    min_value=0,
+    value=0,
+    step=1,
+    help="Listed at top of the page, directly under the photos."
+)
+
+property_type_feat2 = st.selectbox(
+    "Property Type:",
+    tuple(data.property_type.unique()),
+    help= "Listed at the top of the page, directly under the photos."
+)
+
+bathrooms_feat4 = st.number_input(
+    label="Bathrooms:",
+    min_value=0,
+    value=0,
+    step=1,
+    help="Listed at top of the page, directly under the photos."
+)
+
+bedrooms_feat5 = st.number_input(
+    label="Bedrooms:",
+    min_value=0,
+    value=0,
+    step=1,
+    help="Listed at the top of the page, directly under the photos as \"bedroom\"."
+)
+
+room_type_feat3 = st.selectbox(
+    "Room/house type:",
+    tuple(data.room_type.unique()),
+    help="Typically in the description, or based on the photos."
 )
 
 zipcode_feat19 = st.selectbox(
-    "What is the zipcode of the listing?",
-    tuple(data.zipcode.unique())
+    "Zipcode:",
+    tuple(data.zipcode.unique()),
+    help="To find this, look at the map near the bottom of the page and lookup a nearby intersection."
 )
 # Pull median income info based on zipcode selected
 ## Dictionary of zipcode-income info
 zipcode_income_dict = data.set_index("zipcode").to_dict()["median_income_dollars"]
 median_income_dollars_feat20 = zipcode_income_dict[int(zipcode_feat19)]
 
-property_type_feat2 = st.selectbox(
-    "What kind of property is this?",
-    tuple(data.property_type.unique())
+
+## Input info for the features - not all 24 features can be inputted so...
+number_of_host_listings_feat1 = st.number_input(
+    label="Host Listings:",
+    min_value=0,
+    value=0,
+    step=1,
+    help="To find this, click the host's profile picture at the bottom of the page."
 )
 
-room_type_feat3 = st.selectbox(
-    "Select the type of room/house: ",
-    tuple(data.room_type.unique())
-)
 
-bathrooms_feat4 = st.number_input(
-    "How many bathrooms are listed? "
-)
 
-bedrooms_feat5 = st.number_input(
-    "How many bedrooms are listed?"
-)
-
-price_feat6 = st.number_input(
-    "What is the listed price?"
-)
 
 # Extract whether the property is a single room or whole house based on selection
 property_type_binary_feat21 = "room" if "room" in property_type_feat2.lower() else "house"
@@ -156,12 +179,23 @@ if st.button("Price Prediction"):
         price_pred = house_model.predict(input_transformed)
         
     price_pred = round(price_pred[0], 2)
-    st.write(f"The predicted price is: ${price_pred}")
+    st.write(f"The predicted price is: ${price_pred}.")
 
     # Print price differences
     price = price_feat6
+    # Print price differences
     price_diff = round(price - price_pred, 2)
-    st.write(f"The difference between the listed price and the predicted price is {price_diff}")
+    price_diff_percent = round(((price_diff/price_pred) * 100), 2)
 
-    price_diff_percent = round(((price_diff/price) * 100), 2)
-    st.write(f"That is a {price_diff_percent}% difference")
+    if price_diff == 0:
+            st.write(f"The predicted price and model price are exactly the same!")
+        
+    elif price_diff < 0:
+            st.write(f"""A good deal! 🎉 The listed price is ${-price_diff} lower than the predicted price.
+                     \nA {-price_diff_percent}% discount!""")
+
+    elif price_diff > 0:
+            st.write(f"""Oh no! 💔 The listed price is ${price_diff} higher than the predicted price.
+                     \nA {price_diff_percent}% overpay!""")
+
+        
