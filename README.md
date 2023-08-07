@@ -17,3 +17,6 @@ This study aimed to create a web application that could create a fair estimate o
 
 [_Data Folder_](https://github.com/nlee98/ADS-599_Capstone_Project/tree/main/Data)
 - The data folder contains the raw data from [Inside Airbnb](http://insideairbnb.com/get-the-data/) utilized for this project, as well as other files needed during EDA, feature engineering, and check points (such as geojson files, U.S. Census data, and compressed CSV dataframe outputs).
+
+[_Deployment Files Folder_](https://github.com/nlee98/ADS-599_Capstone_Project/tree/main/Deployment_Files)
+- The Deployment Files folder contains all the files necessary for establishing the Streamlit application.
