@@ -3,7 +3,7 @@ _USD ADS-599 Capstone Project Summer 2023 by Hunter Blum, Kyle Esteban Dalope, a
 
 ## Overview
 
-This study aimed to create a web application that could create a fair estimate of Airbnb prices in San Diego, CA. The web application can be found [here](https://fairbnb.streamlit.app/). 
+This study aimed to create a web application, powered by a transparent machine learning algorithm, that could create a fair estimate of Airbnb prices in San Diego, CA. The web application can be found [here](https://fairbnb.streamlit.app/). 
 
 ## Repository Contents
 [_Code Library Folder_](https://github.com/nlee98/ADS-599_Capstone_Project/tree/main/Code%20Library)
@@ -19,4 +19,4 @@ This study aimed to create a web application that could create a fair estimate o
 - The data folder contains the raw data from [Inside Airbnb](http://insideairbnb.com/get-the-data/) utilized for this project, as well as other files needed during EDA, feature engineering, and check points (such as geojson files, U.S. Census data, and compressed CSV dataframe outputs).
 
 [_Deployment Files Folder_](https://github.com/nlee98/ADS-599_Capstone_Project/tree/main/Deployment_Files)
-- The Deployment Files folder contains all the files necessary for establishing the Streamlit application.
+- The Deployment Files folder contains all the files necessary for establishing the Streamlit application. The file _main.py_ is the primary, foundational file, which establishes the home page for the application. The subfolder _pages_ contains three python files that power each of the corresponding pages on the application. 
