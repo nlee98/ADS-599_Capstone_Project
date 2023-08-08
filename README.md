@@ -21,7 +21,7 @@ _Application Home Page_
       - This notebook goes further in-depth on feature engineering, missing data handling, and dimensionality reduction. A sentiment feature is derived from the text-based review feature. Every missing value is handled either by imputation based on logic, imputation by manual assessment, or removal. Feature data types are also assessed; and, unnecessary features are removed.
     3. [_Modeling_](https://github.com/nlee98/ADS-599_Capstone_Project/blob/main/Code%20Library/3_Modeling.ipynb)
       - This notebook contains our data splitting and preprocessing pipeline. After splitting, the notebook explores 16 different models (eight for homes and eight for rooms). The models were then evaluated using adjusted r-squared, root mean square error, and mean absolute error. Finally, the important features of the best models, the gradient boosting regressions, were plotted.
-    4. [_Models Folder_]([https://github.com/nlee98/ADS-599_Capstone_Project/blob/main/Code%20Library/3_Modeling.ipynb](https://github.com/nlee98/ADS-599_Capstone_Project/tree/main/Code%20Library/Models))
+    4. [_Models Folder_](https://github.com/nlee98/ADS-599_Capstone_Project/tree/main/Code%20Library/Models)
       - This folder contains all of the pickled models from the previous notebook.
 
 [_Data Folder_](https://github.com/nlee98/ADS-599_Capstone_Project/tree/main/Data)
