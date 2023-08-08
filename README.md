@@ -8,7 +8,7 @@ This study aimed to create a web application, powered by a transparent machine l
 _Application Home Page_
 
 <p align="center">
-  <img src="https://github.com/nlee98/ADS-599_Capstone_Project/blob/main/Images/Fairbnb_Home_Page.png" />
+  <img src="https://github.com/nlee98/ADS-599_Capstone_Project/blob/main/Images/Fairbnb_Home_Page2.png" />
 </p>
 
 ## Repository Contents
