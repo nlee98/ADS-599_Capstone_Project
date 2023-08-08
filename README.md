@@ -3,7 +3,13 @@ _USD ADS-599 Capstone Project Summer 2023 by Hunter Blum, Kyle Esteban Dalope, a
 
 ## Overview
 
-This study aimed to create a web application, powered by a transparent machine learning algorithm, that could create a fair estimate of Airbnb prices in San Diego, CA. The web application can be found [here](https://fairbnb.streamlit.app/). 
+This study aimed to create a web application, powered by a transparent machine learning algorithm, that could create a fair estimate of Airbnb prices in San Diego, CA. The web application can be found [here](https://fairbnb.streamlit.app/). To use the application, the user can either enter an Airbnb URL in URL mode or manually enter the required information for price predicting in Manual mode.
+
+_Application Home Page_
+
+<p align="center">
+  <img src="https://github.com/nlee98/ADS-599_Capstone_Project/blob/main/Images/Fairbnb_Home_Page.png" />
+</p>
 
 ## Repository Contents
 [_Code Library Folder_](https://github.com/nlee98/ADS-599_Capstone_Project/tree/main/Code%20Library)
