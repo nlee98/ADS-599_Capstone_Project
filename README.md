@@ -20,6 +20,7 @@ _Application Home Page_
     2. [_Cleaning and Engineering_](https://github.com/nlee98/ADS-599_Capstone_Project/blob/main/Code%20Library/2_Cleaning_Engineering.ipynb)
       - This notebook goes further in-depth on feature engineering, missing data handling, and dimensionality reduction. A sentiment feature is derived from the text-based review feature. Every missing value is handled either by imputation based on logic, imputation by manual assessment, or removal. Feature data types are also assessed; and, unnecessary features are removed.
     3. [_Modeling_](https://github.com/nlee98/ADS-599_Capstone_Project/blob/main/Code%20Library/3_Modeling.ipynb)
+      - This notebook contains our data splitting and preprocessing pipeline. After splitting, the notebook explores 16 different models (eight for homes and eight for rooms). The models were then evaluated using adjusted r-squared, root mean square error, and mean absolute error. Finally, the important features of the best models, the gradient boosting regressions, were plotted.
 
 [_Data Folder_](https://github.com/nlee98/ADS-599_Capstone_Project/tree/main/Data)
 - The data folder contains the raw data from [Inside Airbnb](http://insideairbnb.com/get-the-data/) utilized for this project, as well as other files needed during EDA, feature engineering, and check points (such as geojson files, U.S. Census data, and compressed CSV dataframe outputs).
