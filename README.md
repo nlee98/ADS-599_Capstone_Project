@@ -51,4 +51,4 @@ _Application Home Page_
 - Contains the config.toml file used to set the theme for the application.
 
 [_images Folder_](https://github.com/nlee98/ADS-599_Capstone_Project/tree/main/Images)
-- Contains the image of the application used for the README.
+- Contains images used for the README.
