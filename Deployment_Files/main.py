@@ -18,6 +18,7 @@ show_pages(
     ]
 )
 
+
 # Streamlit Setup
 st.header("Fairbnb: A San Diego Airbnb Price Fairness Estimator")
 
@@ -48,3 +49,6 @@ st.image(sd_path,
 logo_path = 'Deployment_Files/pages/images/fairbnb_logo.png'
 
 st.sidebar.image(logo_path, use_column_width=True)
+
+# Logo for page icon
+st.set_page_config(page_icon=logo_path)
