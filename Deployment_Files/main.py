@@ -29,7 +29,7 @@ show_pages(
 )
 
 # Put logo in sidebar
-logo_gray_path = 'Deployment_Files/pages/images/faribnb_2.png'
+logo_gray_path = 'Deployment_Files/pages/images/fairbnb_gray.png'
 st.sidebar.image(logo_gray_path, use_column_width=True)
 
 # Streamlit Setup
