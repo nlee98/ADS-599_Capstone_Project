@@ -38,7 +38,13 @@ st.markdown("""
     For info about the creators, models, and code, please visit the _About_ section.
 """)
 
+# Image at bottom of page
 sd_path = 'Deployment_Files/pages/images/SD.jfif'
 
 st.image(sd_path,
          caption= 'Photo by: JIM GRANT sdc')
+
+# Logo in sidebar
+logo_path = 'Deployment_Files/pages/images/fairbnb_logo.png'
+
+st.sidebar.image(logo_path, use_column_width=True)
