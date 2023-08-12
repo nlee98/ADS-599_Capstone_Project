@@ -28,7 +28,9 @@ show_pages(
     ]
 )
 
-st.sidebar.image(logo_path, use_column_width=True)
+# Put logo in sidebar
+logo_gray_path = 'Deployment_Files/pages/images/faribnb_2.png'
+st.sidebar.image(logo_gray_path, use_column_width=True)
 
 # Streamlit Setup
 st.header("Fairbnb: A San Diego Airbnb Price Fairness Estimator")
