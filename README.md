@@ -26,6 +26,8 @@ _Application Home Page_
       - This notebook contains our data splitting and preprocessing pipeline. After splitting, the notebook explores 16 different models (eight for homes and eight for rooms). The models were then evaluated using adjusted r-squared, root mean square error, and mean absolute error. Finally, the important features of the best models, the gradient boosting regressions, were plotted.
     4. [_Models Folder_](https://github.com/nlee98/ADS-599_Capstone_Project/tree/main/Code%20Library/Models)
       - This folder contains all of the pickled models from the previous notebook.
+    5. [_Presentation_plots_](https://github.com/nlee98/ADS-599_Capstone_Project/tree/main/Code%20Library/Presentation_plots)
+       - This folder contains a copy of the three main notebooks, however, plots are adjusted to match our presentation theme. 
 
 [_Data Folder_](https://github.com/nlee98/ADS-599_Capstone_Project/tree/main/Data)
 - The data folder contains the raw data from [Inside Airbnb](http://insideairbnb.com/get-the-data/) utilized for this project, as well as other files needed during EDA, feature engineering, and check points (such as geojson files, U.S. Census data, and compressed CSV data frame outputs).
