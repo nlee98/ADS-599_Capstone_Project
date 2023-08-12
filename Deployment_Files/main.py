@@ -53,4 +53,5 @@ st.sidebar.image(logo_path, use_column_width=True)
 # Logo for page icon
 logo = Image.open(logo_path)
 
-st.set_page_config(page_icon=logo)
+st.beta_set_page_config(page_title= "Faribnb", 
+                        page_icon = logo)
