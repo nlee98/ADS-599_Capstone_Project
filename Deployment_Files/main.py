@@ -8,6 +8,16 @@ import streamlit as st # Version 1.25.0
 from st_pages import Page, show_pages
 from PIL import Image
 
+# Logo for page icon
+logo_path = 'Deployment_Files/pages/images/fairbnb_logo.png'
+logo = Image.open(logo_path)
+
+
+st.set_page_config(page_title= "Faribnb", 
+                        page_icon = logo)
+
+
+
 # Setup Sidebar
 show_pages(
     [
@@ -18,6 +28,7 @@ show_pages(
     ]
 )
 
+st.sidebar.image(logo_path, use_column_width=True)
 
 # Streamlit Setup
 st.header("Fairbnb: A San Diego Airbnb Price Fairness Estimator")
@@ -45,13 +56,4 @@ sd_path = 'Deployment_Files/pages/images/SD.jfif'
 st.image(sd_path,
          caption= 'Photo by: JIM GRANT sdc')
 
-# Logo in sidebar
-logo_path = 'Deployment_Files/pages/images/fairbnb_logo.png'
 
-st.sidebar.image(logo_path, use_column_width=True)
-
-# Logo for page icon
-logo = Image.open(logo_path)
-
-st.set_page_config(page_title= "Faribnb", 
-                        page_icon = logo)
