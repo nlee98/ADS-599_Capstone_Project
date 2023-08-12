@@ -29,6 +29,9 @@ _Application Home Page_
     5. [_Presentation_plots_](https://github.com/nlee98/ADS-599_Capstone_Project/tree/main/Code%20Library/Presentation_plots)
       - This folder contains a copy of the three main notebooks, however, plots are adjusted to match our presentation theme. 
 
+[_Documents Folder_](https://github.com/nlee98/ADS-599_Capstone_Project/tree/main/Documents)
+- The documents folder contains the article for this project.
+
 [_Data Folder_](https://github.com/nlee98/ADS-599_Capstone_Project/tree/main/Data)
 - The data folder contains the raw data from [Inside Airbnb](http://insideairbnb.com/get-the-data/) utilized for this project, as well as other files needed during EDA, feature engineering, and check points (such as geojson files, U.S. Census data, and compressed CSV data frame outputs).
   -  2022_06_june_listings.csv.gz - Raw Airbnb data for San Diego, CA from June 2022 sourced from Inside Airbnb.
