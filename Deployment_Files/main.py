@@ -6,7 +6,7 @@ This file is the home page for the application
 # Library Imports
 import streamlit as st # Version 1.25.0
 from st_pages import Page, show_pages
-
+from PIL import Image
 
 # Setup Sidebar
 show_pages(
@@ -51,4 +51,6 @@ logo_path = 'Deployment_Files/pages/images/fairbnb_logo.png'
 st.sidebar.image(logo_path, use_column_width=True)
 
 # Logo for page icon
-st.set_page_config(page_icon=logo_path)
+logo = Image.open(logo_path)
+
+st.set_page_config(page_icon=logo)
